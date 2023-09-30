@@ -5,12 +5,17 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    
     <header class="header">
         <h1 class="title">Welcome to the Digitalized EMI Cash Collection Era</h1>
     </header>
     <main class="content">
         <p class="description">Experience hassle-free EMI payments with our digital solution.</p>
-        <button class="cta-button">Press to Proceed</button>
+    <form action="/location_verification" method="POST">
+        <button type="submit" class="cta-button">Press to Proceed</button>
+    </form>
     </main>
+   
 </body>
 </html>
+
