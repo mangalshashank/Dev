@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agent Verification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">Agent Verification</h1>
+    </header>
+
+    <div class="content">
+        <p class="description">Please enter your phone number for verification:</p>
+        <form action="/verify_agent" method="post">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <br>
+            <button class="cta-button" type="submit">Verify</button>
+        </form>
+    </div>
+</body>
+</html>
