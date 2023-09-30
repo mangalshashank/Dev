@@ -21,3 +21,5 @@ for i in range(5):
         ans.append(result['verified'])
     print(ans)
     ans.clear()
+
+# print(numpyImages)

@@ -16,4 +16,5 @@ for filename in os.listdir('registered_users'):
 
 x = face_encoding("img2.jpg")
 result = face_recognition.compare_faces(registered_faces, x, tolerance=0.6)  # Adjust tolerance as needed
+
 print(result)
