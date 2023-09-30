@@ -1,33 +1,23 @@
 import cv2
 from deepface import DeepFace
+import os
 
-# Load img1
-img1_path = 'img1.jpg'  # Replace with the actual path to img1.jpg
+def load_images_from_folder(folder):
+    images = []
+    for filename in os.listdir(folder):
+        img = cv2.imread(os.path.join(folder, filename))
+        if img is not None:
+            images.append(img)
+    return images
 
-# Initialize the webcam capture
-cap = cv2.VideoCapture(0)  # 0 represents the default camera (usually the built-in webcam)
+numpyImages = load_images_from_folder('registered_users')
 
-# Capture a single frame from the webcam
-ret, frame = cap.read()
+img2 = cv2.imread('img2.jpg')
 
-# Check if the frame was captured successfully
-if not ret:
-    print("Error capturing frame")
-else:
-    # Save the captured frame as img2.jpg
-    cv2.imwrite('img2.jpg', frame)
-
-    # Perform verification using DeepFace
-    result = DeepFace.verify(img1_path, 'img2.jpg')
-
-    # Extract the verification result
-    verified = result['verified']
-
-    # Display the verification result
-    if verified:
-        print("Verification successful: The face in the webcam frame matches img1.jpg.")
-    else:
-        print("Verification failed: The face in the webcam frame does not match img1.jpg.")
-
-# Release the webcam
-cap.release()
+for i in range(5):
+    ans = []
+    for images in numpyImages:
+        result = DeepFace.verify(img2, images, enforce_detection=False)
+        ans.append(result['verified'])
+    print(ans)
+    ans.clear()
