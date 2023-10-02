@@ -69,7 +69,9 @@ def face_verification():
     cv2.imwrite('temporary.jpg', image)
     x1 = face_encoding(agentDetails[phone]['facePath'])
     x2 = face_encoding('temporary.jpg')
-    if face_recognition.compare_faces([x1], x2, tolerance=0.6):
+    result = face_recognition.compare_faces([x1], x2, tolerance=0.6)
+    print(result)
+    if face_recognition.compare_faces([x1], x2, tolerance=0.6).__contains__(True):
         return jsonify({'success': True, 'redirect_url': '/agent_details'})  
     else:
         return jsonify({'success': True, 'redirect_url': '/agent_verification'}) 
@@ -95,7 +97,7 @@ def find_user():
     x2 = face_encoding('temporary.jpg')
     for user in registeredUsers:
         x1 = face_encoding(registeredUsers[user]['facePath'])
-        if face_recognition.compare_faces([x1], x2, tolerance=0.6):
+        if face_recognition.compare_faces([x1], x2, tolerance=0.6).__contains__(True):
             session['phone'] = user
             return jsonify({'success': True, 'redirect_url': '/user_details'})
     return jsonify({'success': False, 'redirect_url': '/userVerfication'})
