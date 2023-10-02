@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Agent Details</h1>
+    </header>
+    <div class="content">
+        <div class="agent-details">
+            <h2>Agent Information</h2>
+            <ul>
+                <li><strong>Name:</strong> {{agentDetails['name']}}</li>
+                <li><strong>Phone Number:</strong> {{agentDetails['location']}}</li>
+            </ul>
+            <!-- <h1>Webcam Image Capture</h1>
+            <video id="video" width="640" height="480" autoplay></video>
+            <button id="capture">Capture Image and Send</button>
+            <canvas id="canvas" style="display: none;"></canvas>
+            <script src="{{ url_for('static', filename='capture.js') }}"></script> -->
+        </div>
+        
+    </div>
+    <!-- <script src="capture.js"></script> -->
+</body>
+</html>
