@@ -14,7 +14,7 @@ authorized_locations = []
 
 def verifyLocation():
     coordinates = get_current_location_coordinates()
-    #authorized_locations.append(coordinates)
+    authorized_locations.append(coordinates)
     for auth_location in authorized_locations:
         distance = geodesic(coordinates, auth_location).meters
         if distance < 100:

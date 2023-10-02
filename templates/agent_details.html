@@ -18,14 +18,14 @@
                 <li><strong>Name:</strong> {{agentDetails['name']}}</li>
                 <li><strong>Phone Number:</strong> {{agentDetails['location']}}</li>
             </ul>
-            <!-- <h1>Webcam Image Capture</h1>
-            <video id="video" width="640" height="480" autoplay></video>
-            <button id="capture">Capture Image and Send</button>
-            <canvas id="canvas" style="display: none;"></canvas>
-            <script src="{{ url_for('static', filename='capture.js') }}"></script> -->
         </div>
         
+        <!-- Add a form to proceed to the next step -->
+       
+        <form action="/userVerfication" method="GET">
+            <button type="submit">Proceed to Next Step</button>
+        </form>
+    
     </div>
-    <!-- <script src="capture.js"></script> -->
 </body>
 </html>

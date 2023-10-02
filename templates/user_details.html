@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>User Details</h1>
+    </header>
+    <div class="content">
+        <div class="user-details">
+            <h2>User Information</h2>
+            <ul>
+                <li><strong>name:</strong> {{registeredUsers['name']}}</li>
+                <li><strong>location:</strong> {{registeredUsers['location']}}</li>
+                <li><strong>email:</strong></li> {{registeredUsers['email']}}</li>
+                <li><strong>phone:</strong></li> {{registeredUsers['phone']}}</li>
+                <li><strong>gender:</strong></li> {{registeredUsers['gender']}}</li>
+                <li><strong>emi:</strong></li> {{registeredUsers['emi']}}</li>
+                <li><strong>instalments_left:</strong></li> {{registeredUsers['instalments_left']}}</li>
+            </ul>
+        </div>
+        <div>
+            <form action="/agentApproval" method="GET">
+                <button type="submit">Please pay the amount to agent</button>
+            </form>
+        
+        </div>
+
+    </div>
+</body>
+</html>
