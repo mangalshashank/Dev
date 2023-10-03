@@ -117,6 +117,7 @@ agentDetails = {
     '8982141036' : {
         'name' : 'Shashank Mangal',
         'location' : 'Bhopal',
+        'phone' : '8982141036',
         'facePath' : 'registered_agent/shashankMangal.jpg'
     }
 }
