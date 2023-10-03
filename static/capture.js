@@ -1,6 +1,17 @@
 const video = document.getElementById('video');
 const captureButton = document.getElementById('capture');
 const canvas = document.getElementById('canvas');
+const loadingOverlay = document.getElementById("loading-overlay");
+
+// Function to show the loading overlay
+function showLoadingOverlay() {
+    loadingOverlay.style.display = "block";
+}
+
+// Function to hide the loading overlay
+function hideLoadingOverlay() {
+    loadingOverlay.style.display = "none";
+}
 
 // Access user's webcam
 navigator.mediaDevices.getUserMedia({ video: true })
@@ -11,8 +22,10 @@ navigator.mediaDevices.getUserMedia({ video: true })
     console.error('Error accessing webcam:', err);
 });
 
-// Capture image from webcam and send to backend
 captureButton.addEventListener('click', () => {
+    // Show the loading overlay
+    showLoadingOverlay();
+
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     const context = canvas.getContext('2d');
@@ -30,10 +43,17 @@ captureButton.addEventListener('click', () => {
     })
     .then((response) => response.json())
     .then((data) => {
+        // Hide the loading overlay when the response is received
+        showLoadingOverlay();
+
         if (data.success) {
             // Redirect to the next page or index.html based on server response
             if (data.redirect_url) {
+                // Show the loading overlay again before redirecting
+                hideLoadingOverlay();
+                
                 window.location.href = data.redirect_url;
+                
             } else {
                 console.error('Image capture failed:', data.message);
             }
@@ -42,6 +62,8 @@ captureButton.addEventListener('click', () => {
         }
     })
     .catch((error) => {
+        // Hide the loading overlay on error
+        hideLoadingOverlay();
         console.error('Error capturing image:', error);
     });
 });
