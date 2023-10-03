@@ -132,6 +132,27 @@ registeredUsers = {
         'facePath' : 'registered_users/shashankMangal.jpg',
         'emi' : '10000',
         'instalments_left' : '5'
+    },
+    #create dummy data
+    '8982141037' : {
+        'name' : 'Nityam ',
+        'location' : 'Bihar',
+        'email' : 'nityam@example.com',
+        'phone' : '8982141037',
+        'gender' : 'male',
+        'facePath' : 'registered_users/nityam.jpg',
+        'emi' : '20000',
+        'instalments_left' : '3'
+    },
+    '8982141038' : {
+        'name' : 'Anas',
+        'location' : 'Tikamgarh',
+        'email' : 'ankit@example.com',
+        'phone' : '8982141038',
+        'gender' : 'male',
+        'facePath' : 'registered_users/anas.jpg',
+        'emi' : '30000',
+        'instalments_left' : '2'
     }
 }
 

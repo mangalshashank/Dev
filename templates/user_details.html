@@ -5,6 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Details</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Additional CSS styles for this page */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background-color: #2c3e50;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ecf0f1;
+        }
+
+        .content {
+            background-color: #ecf0f1;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .user-details {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li strong {
+            font-weight: bold;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,22 +83,20 @@
         <div class="user-details">
             <h2>User Information</h2>
             <ul>
-                <li><strong>name:</strong> {{registeredUsers['name']}}</li>
-                <li><strong>location:</strong> {{registeredUsers['location']}}</li>
-                <li><strong>email:</strong></li> {{registeredUsers['email']}}</li>
-                <li><strong>phone:</strong></li> {{registeredUsers['phone']}}</li>
-                <li><strong>gender:</strong></li> {{registeredUsers['gender']}}</li>
-                <li><strong>emi:</strong></li> {{registeredUsers['emi']}}</li>
-                <li><strong>instalments_left:</strong></li> {{registeredUsers['instalments_left']}}</li>
+                <li><strong>Name:</strong> {{registeredUsers['name']}}</li>
+                <li><strong>Location:</strong> {{registeredUsers['location']}}</li>
+                <li><strong>Email:</strong> {{registeredUsers['email']}}</li>
+                <li><strong>Phone:</strong> {{registeredUsers['phone']}}</li>
+                <li><strong>Gender:</strong> {{registeredUsers['gender']}}</li>
+                <li><strong>EMI:</strong> {{registeredUsers['emi']}}</li>
+                <li><strong>Instalments Left:</strong> {{registeredUsers['instalments_left']}}</li>
             </ul>
         </div>
         <div>
             <form action="/agentApproval" method="GET">
-                <button type="submit">Please pay the amount to agent</button>
+                <button type="submit">Please pay the amount to the agent</button>
             </form>
-        
         </div>
-
     </div>
 </body>
 </html>
